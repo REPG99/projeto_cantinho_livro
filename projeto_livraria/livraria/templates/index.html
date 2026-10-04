@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cantinho do Livro - Lista de Livros</title>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+</head>
+<body>
+    <div class="cabecalho">
+        <h1>Cantinho do Livro</h1>
+        <img src="{% static 'images/logo.png' %}" alt="Logo" class="imagem-logo">
+    </div>
+
+    <div class="conteudo">
+        <h2>Listagem Completa do Catálogo</h2>
+        <p>Total de livros cadastrados: {{ total }}</p>
+        
+        <button class="botao-acao" onclick="minhaFuncao()">Clique Aqui</button>
+        <br><br>
+
+        <table border="1" class="tabela-livros">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Título do Livro</th>
+                    <th>Preço de Venda</th>
+                    <th>Estoque Disponível</th>
+                    <th>Autor do Livro</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for livro in livros %}
+                <tr>
+                    <td>{{ livro.id }}</td>
+                    <td><a href="{% url 'detalhe' livro.id %}">{{ livro.nome }}</a></td>
+                    <td>R$ {{ livro.preco }}</td>
+                    <td>{{ livro.estoque }}</td>
+                    <td>{{ livro.autor }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>s

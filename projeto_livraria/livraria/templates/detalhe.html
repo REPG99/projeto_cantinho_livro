@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes do Livro</title>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+</head>
+<body>
+    <div class="cabecalho">
+        <h1>Cantinho do Livro</h1>
+        <img src="{% static 'images/logo.png' %}" alt="Logo" class="imagem-logo">
+    </div>
+
+    <div class="conteudo">
+        <h2>Página de Detalhes</h2>
+
+        <div class="caixa-detalhe">
+            <p><strong>ID do Registro:</strong> {{ id }}</p>
+            <p><strong>Título:</strong> {{ nome }}</p>
+            <p><strong>Autor:</strong> {{ autor }}</p>
+            <p><strong>Preço:</strong> R$ {{ preco }}</p>
+            <p><strong>Quantidade em Estoque:</strong> {{ estoque }} unidades</p>
+        </div>
+
+        <br>
+        <a href="{% url 'index' %}">Voltar para a lista principal</a>
+    </div>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
